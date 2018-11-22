@@ -80,8 +80,8 @@ Views = {
     }, {
         title: "HOMES Brewery",
         location: {
-            lat: 42.269681,
-            lng: -83.774472
+            lat: 42.280273,
+            lng: -83.778457
         }
     }, {
         title: "Grizzly Peak Brewing Co",
