@@ -59,7 +59,7 @@ Views = {
             lat: 42.279148,
             lng: -83.748238
         }
-    } {
+    }, {
         title: "Arbor Brewing",
         position: {
             lat: 42.280296,
