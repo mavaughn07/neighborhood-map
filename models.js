@@ -1,129 +1,129 @@
 Views = {
     var bars = [{
-        name: "Canton Brew Works",
+        title: "Canton Brew Works",
         position: {
-            lat: ,
-            lng:
+            lat: 42.348954,
+            lng: -83.461236
         }
     }, {
-        name: "Liberty Street Brewing",
+        title: "Liberty Street Brewing",
         position: {
-            lat: ,
-            lng:
+            lat: 42.379217,
+            lng: -83.461315
         }
     }, {
-        name: "ROAK",
+        title: "ROAK Brewing",
         position: {
-            lat: ,
-            lng:
+            lat: 42.482954,
+            lng: -83.140733
         }
     }, {
-        name: "Rochester Mills",
+        title: "Rochester Mills Beer Co",
         position: {
-            lat: ,
-            lng:
+            lat: 42.689468,
+            lng: -83.246000
         }
     }, {
-        name: "Brew Detroit",
+        title: "Brew Detroit",
         position: {
-            lat: ,
-            lng:
+            lat: 42.327647,
+            lng: -83.061788
         }
     }, {
-        name: "The Detroit Beer Co",
+        title: "Detroit Beer Company",
         position: {
-            lat: ,
-            lng:
+            lat: 42.335982,
+            lng: -83.048837
         }
     }, {
-        name: "Atwater",
+        title: "Atwater Brewery",
         position: {
-            lat: ,
-            lng:
+            lat: 42.337356,
+            lng: -83.018481
         }
     }, {
-        name: "Motor City Brewing",
+        title: "Motor City Brewing",
         position: {
-            lat: ,
-            lng:
+            lat: 42.351679,
+            lng: -83.065960
         }
     }, {
-        name: "Blue Tractor",
+        title: "Blue Tractor Brewery",
         position: {
-            lat: ,
-            lng:
+            lat: 42.280641,
+            lng: -83.746940
         }
     }, {
-        name: "Jolly Pumpkin",
+        title: "Jolly Pumpkin",
         position: {
-            lat: ,
-            lng:
+            lat: 42.279148,
+            lng: -83.748238
         }
     } {
-        name: "Arbor Brewing",
+        title: "Arbor Brewing",
         position: {
-            lat: ,
-            lng:
+            lat: 42.280296,
+            lng: -83.747845
         }
     }, {
-        name: "Glass House",
+        title: "Glass House",
         position: {
-            lat: ,
-            lng:
+            lat: 42.274091,
+            lng: -83.779037
         }
     }, {
-        name: "Wolverine",
+        title: "Wolverine State Brewing Co",
         position: {
-            lat: ,
-            lng:
+            lat: 42.269681,
+            lng: -83.774472
         }
     }, {
-        name: "Homes",
+        title: "HOMES Brewery",
         position: {
-            lat: ,
-            lng:
+            lat: 42.269681,
+            lng: -83.774472
         }
     }, {
-        name: "Grizzly Peak",
+        title: "Grizzly Peak Brewing Co",
         position: {
-            lat: ,
-            lng:
+            lat: 42.280716,
+            lng: -83.749565
         }
     }, {
-        name: "Stony Lake",
+        title: "Stony Lake Brewing Co",
         position: {
-            lat: ,
-            lng:
+            lat: 42.170798,
+            lng: -83.772459
         }
     }, {
-        name: "The Corner Brewery",
+        title: "The Corner Brewery",
         position: {
-            lat: ,
-            lng:
+            lat: 42.250253,
+            lng: -83.609981
         }
     }, {
-        name: "Hopcat",
+        title: "Hopcat",
         position: {
-            lat: ,
-            lng:
+            lat: 42.278930,
+            lng: -83.741635
         }
     }, {
-        name: "Salt Springs",
+        title: "Salt Springs Brewery",
         position: {
-            lat: ,
-            lng:
+            lat: 42.165879,
+            lng: -83.780447
         }
     }, {
-        name: "Batch",
+        title: "Batch Brewing Company",
         position: {
-            lat: ,
-            lng:
+            lat: 42.328527,
+            lng: -83.063352
         }
     }, {
-        name: "Witch's Hat",
+        title: "Witch's Hat Brewing ",
         position: {
-            lat: ,
-            lng:
+            lat: 42.454514,
+            lng: -83.650345
         }
     }]
 }
