@@ -18,12 +18,6 @@ Views = {
             lng: -83.140733
         }
     }, {
-        title: "Rochester Mills Beer Co",
-        location: {
-            lat: 42.689468,
-            lng: -83.246000
-        }
-    }, {
         title: "Brew Detroit",
         location: {
             lat: 42.327647,
