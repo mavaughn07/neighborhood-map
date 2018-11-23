@@ -1,5 +1,5 @@
 var map;
-var markers = [];
+var markers = ko.obesrvableArray([]);
 
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
