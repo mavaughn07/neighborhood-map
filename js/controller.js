@@ -1,5 +1,7 @@
 var map;
-var markers = ko.obesrvableArray([]);
+var bounds;
+var largeInfowindow;
+
 
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
@@ -11,15 +13,24 @@ function initMap() {
         mapTypeControl: false
     });
 
+    largeInfowindow = new google.maps.InfoWindow();
+    bounds = new google.maps.LatLngBounds();
 
-    var largeInfowindow = new google.maps.InfoWindow();
+
+    ko.applyBindings(new viewModel());
+
+
+}
+
+var viewModel = function() {
+    var self = this;
     var defaultIcon = makeMarkerIcon('0091ff');
     var highlightedIcon = makeMarkerIcon('FFFF24');
+    var markers = ko.observableArray();
 
     for (var i = 0; i < locations.length; i++) {
         var position = locations[i].location;
         var title = locations[i].title;
-        console.log();
 
         var marker = new google.maps.Marker({
             position: position,
@@ -39,11 +50,11 @@ function initMap() {
             this.setIcon(defaultIcon);
         });
     }
-    var bounds = new google.maps.LatLngBounds();
+
     // Extend the boundaries of the map for each marker and display the marker
-    for (var i = 0; i < markers.length; i++) {
-        markers[i].setMap(map);
-        bounds.extend(markers[i].position);
+    for (var i = 0; i < markers().length; i++) {
+        markers()[i].setMap(map);
+        bounds.extend(markers()[i].position);
     }
     map.fitBounds(bounds);
 
