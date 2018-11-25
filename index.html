@@ -25,6 +25,13 @@
         </div>
         <div class="row fill">
             <div class="col-3 no-padding">
+                <div class="input-group mb-3 no-margin">
+                    <input type="text" class="form-control" placeholder="Brewery Name" aria-label="Brewery's name" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button">Filter</button>
+                    </div>
+                </div>
+
                 <div id="listings">
                     <ul id="brewery-listings" data-bind="foreach: markers">
                         <li data-bind="text: title"></li>
