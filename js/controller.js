@@ -44,17 +44,25 @@ var viewModel = function() {
         //     populateInfoWindow(this, largeInfowindow);
         // });
 
-        // marker.addListener('mouseout', function() {
-        //     this.setIcon(defaultIcon);
-        // });
     }
 
     // Extend the boundaries of the map for each marker and display the marker
-    for (var i = 0; i < self.markers().length; i++) {
-        self.markers()[i].setMap(map);
-        bounds.extend(self.markers()[i].position);
+
+    self.showListings = function() {
+
+        for (var i = 0; i < self.markers().length; i++) {
+            self.markers()[i].setMap(map);
+            bounds.extend(self.markers()[i].position);
+        }
+        map.fitBounds(bounds);
     }
-    map.fitBounds(bounds);
+
+    self.hideListings = function() {
+        for (var i = 0; i < self.markers().length; i++) {
+            self.markers()[i].setMap(null);
+        }
+    }
+
 
 
     self.highlightMarker = function(marker) {
