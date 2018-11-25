@@ -43,9 +43,7 @@ var viewModel = function() {
         // marker.addListener('click', function() {
         //     populateInfoWindow(this, largeInfowindow);
         // });
-        // marker.addListener('mouseover', function() {
-        //     this.setIcon(highlightedIcon);
-        // });
+
         // marker.addListener('mouseout', function() {
         //     this.setIcon(defaultIcon);
         // });
@@ -59,6 +57,16 @@ var viewModel = function() {
     map.fitBounds(bounds);
 
 
+    self.highlightMarker = function(marker) {
+
+        marker.setIcon(highlightedIcon);
+
+    }
+
+    self.defaultMarker = function(marker) {
+
+        marker.setIcon(defaultIcon);
+    }
 
     //pulled from previous Udacity lessons
     function makeMarkerIcon(markerColor) {
