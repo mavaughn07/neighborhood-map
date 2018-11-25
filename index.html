@@ -26,8 +26,8 @@
         <div class="row fill">
             <div class="col-3 no-padding">
                 <div id="listings">
-                    <ul id="brewery-listings">
-                        <li>1</li>
+                    <ul id="brewery-listings" data-bind="foreach: markers">
+                        <li data-bind="text: title"></li>
                     </ul>
                 </div>
             </div>

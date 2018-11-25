@@ -26,7 +26,7 @@ var viewModel = function() {
     var self = this;
     var defaultIcon = makeMarkerIcon('0091ff');
     var highlightedIcon = makeMarkerIcon('FFFF24');
-    var markers = ko.observableArray();
+    self.markers = ko.observableArray([]);
 
     for (var i = 0; i < locations.length; i++) {
         var position = locations[i].location;
@@ -39,22 +39,22 @@ var viewModel = function() {
             icon: defaultIcon,
             id: i
         });
-        markers.push(marker);
-        marker.addListener('click', function() {
-            populateInfoWindow(this, largeInfowindow);
-        });
-        marker.addListener('mouseover', function() {
-            this.setIcon(highlightedIcon);
-        });
-        marker.addListener('mouseout', function() {
-            this.setIcon(defaultIcon);
-        });
+        self.markers.push(marker);
+        // marker.addListener('click', function() {
+        //     populateInfoWindow(this, largeInfowindow);
+        // });
+        // marker.addListener('mouseover', function() {
+        //     this.setIcon(highlightedIcon);
+        // });
+        // marker.addListener('mouseout', function() {
+        //     this.setIcon(defaultIcon);
+        // });
     }
 
     // Extend the boundaries of the map for each marker and display the marker
-    for (var i = 0; i < markers().length; i++) {
-        markers()[i].setMap(map);
-        bounds.extend(markers()[i].position);
+    for (var i = 0; i < self.markers().length; i++) {
+        self.markers()[i].setMap(map);
+        bounds.extend(self.markers()[i].position);
     }
     map.fitBounds(bounds);
 
