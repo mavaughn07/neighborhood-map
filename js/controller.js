@@ -1,6 +1,6 @@
 var map;
 var bounds;
-var largeInfowindow;
+var infowindow;
 
 
 function initMap() {
@@ -13,12 +13,10 @@ function initMap() {
         mapTypeControl: false
     });
 
-    largeInfowindow = new google.maps.InfoWindow();
+    infowindow = new google.maps.InfoWindow();
     bounds = new google.maps.LatLngBounds();
 
-
     ko.applyBindings(new viewModel());
-
 
 }
 
@@ -39,10 +37,14 @@ var viewModel = function() {
             icon: defaultIcon,
             id: i
         });
+        marker.address = locations[i].address;
+        marker.phone = locations[i].phone;
+        marker.website = locations[i].website;
+
         self.markers.push(marker);
-        // marker.addListener('click', function() {
-        //     populateInfoWindow(this, largeInfowindow);
-        // });
+        marker.addListener('click', function() {
+            populateInfoWindow(this, infowindow);
+        });
 
     }
 
@@ -62,8 +64,6 @@ var viewModel = function() {
             self.markers()[i].setMap(null);
         }
     }
-
-
 
     self.highlightMarker = function(marker) {
 
@@ -86,5 +86,23 @@ var viewModel = function() {
             new google.maps.Point(10, 34),
             new google.maps.Size(21, 34));
         return markerImage;
+    }
+
+    function populateInfoWindow(marker, infowindow) {
+        if (infowindow.marker != marker) {
+            // Clear the infowindow content to give the streetview time to load.
+            infowindow.setContent('');
+            infowindow.marker = marker;
+            // Make sure the marker property is cleared if the infowindow is closed.
+            infowindow.addListener('closeclick', function() {
+                infowindow.marker = null;
+            });
+            infowindow.setContent('<div class="info-window"><h4>' + marker.title + '</h4><div>' + marker.address + '</div><div>' +
+                marker.phone + '</div><a href="http://' + marker.website + '">' + marker.website + '</a></div>');
+        } else {
+            infowindow.setContent('<div class="info-window"><h4>' + marker.title + '</h4><div>' + marker.address + '</div><div>' +
+                marker.phone + '</div><a href="' + marker.website + '">' + marker.website + '</a></div>');
+        }
+        infowindow.open(map, marker);
     }
 }

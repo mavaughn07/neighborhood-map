@@ -41,3 +41,7 @@ body {
 .container {
     width: 100%;
 }
+
+.info-window {
+    text-align: center;
+}
