@@ -37,9 +37,62 @@ var viewModel = function() {
             icon: defaultIcon,
             id: i
         });
-        marker.address = locations[i].address;
-        marker.phone = locations[i].phone;
-        marker.website = locations[i].website;
+        marker.address = '';
+        marker.phone = '';
+        marker.website = '';
+        marker.rating = '';
+
+        (function(marker) {
+            $.ajax({
+                url: 'https://aapi.foursquare.com/v2/venues/search?ll=' + marker.position.lat() + ',' + marker.position.lng() + '&query=' + marker.title + '&client_id=MCLI5B3BQXDAOANZ0KROJJDTU1ENKQUMDZEXSEQ3VZZL3K5O&client_secret=ZFNPE0JKM3UIC3WCQBZ4UP0ZM4FWY42AQISP0Y2Q0Y2GU31L&v=20181125',
+                method: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    marker.id = data.response.venues[0].id;
+                    $.ajax({
+                        url: 'https://api.foursquare.com/v2/venues/' + marker.id + '?client_id=MCLI5B3BQXDAOANZ0KROJJDTU1ENKQUMDZEXSEQ3VZZL3K5O&client_secret=ZFNPE0JKM3UIC3WCQBZ4UP0ZM4FWY42AQISP0Y2Q0Y2GU31L&v=20181125',
+                        method: 'GET',
+                        dataType: 'json',
+                        success: function(data) {
+                            var foursqLoc = data.response.venue.location;
+
+                            //test to make sure address exists in foursquare
+                            if (foursqLoc.address && foursqLoc.city && foursqLoc.state && foursqLoc.postalCode) {
+                                marker.address = foursqLoc.address + ', ' + foursqLoc.city + ', ' + foursqLoc.state + ' ' + foursqLoc.postalCode;
+                            }
+
+                            //test to make sure phone number exists in foursquare
+                            var phone = data.response.venue.contact.phone
+                            if (phone) {
+                                phone = phone.replace(/[^\d]/g, "")
+                                if (phone.length == 10) {
+                                    marker.phone = phone.replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3");
+                                }
+                            }
+
+                            //test to make sure url exists in foursquare
+                            if (data.response.venue.url) {
+                                marker.website = data.response.venue.url
+                            }
+
+                            //test to make sure rating exists
+                            if (data.response.venue.rating) {
+                                marker.rating = 'Foursquare Rating: ' + data.response.venue.rating
+                            }
+                        },
+                        error: function() {
+                            alert("Error reaching the Foursquare API for " + marker.title);
+                            marker.rating = 'Error reaching Foursquare API'
+                        }
+                    })
+                },
+                error: function() {
+                    alert("Error reaching the Foursquare API for " + marker.title);
+                    marker.rating = 'Error reaching Foursquare API'
+                }
+
+            })
+        })(marker)
 
         self.markers.push(marker);
         marker.addListener('click', function() {
@@ -97,11 +150,11 @@ var viewModel = function() {
             infowindow.addListener('closeclick', function() {
                 infowindow.marker = null;
             });
-            infowindow.setContent('<div class="info-window"><h4>' + marker.title + '</h4><div>' + marker.address + '</div><div>' +
-                marker.phone + '</div><a href="http://' + marker.website + '">' + marker.website + '</a></div>');
+            infowindow.setContent('<div class="info-window"><h4>' + marker.title + '</h4><div>' + marker.rating + '</div><div>' + marker.address + '</div><div>' +
+                marker.phone + '</div><a href="' + marker.website + '">' + marker.website + '</a></div>');
         } else {
             infowindow.setContent('<div class="info-window"><h4>' + marker.title + '</h4><div>' + marker.address + '</div><div>' +
-                marker.phone + '</div><a href="http://' + marker.website + '">' + marker.website + '</a></div>');
+                marker.phone + '</div><a href="' + marker.website + '">' + marker.website + '</a></div>');
         }
         infowindow.open(map, marker);
     }
