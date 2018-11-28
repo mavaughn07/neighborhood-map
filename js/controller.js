@@ -170,7 +170,7 @@ var viewModel = function() {
             infowindow.setContent('<div class="info-window"><h4>' + marker.title + '</h4><div>' + marker.rating + '</div><div>' + marker.address + '</div><div>' +
                 marker.phone + '</div><a href="' + marker.website + '">' + marker.website + '</a></div>');
         } else {
-            infowindow.setContent('<div class="info-window"><h4>' + marker.title + '</h4><div>' + marker.address + '</div><div>' +
+            infowindow.setContent('<div class="info-window"><h4>' + marker.title + '</h4><div>' + marker.rating + '</div><div>' + marker.address + '</div><div>' +
                 marker.phone + '</div><a href="' + marker.website + '">' + marker.website + '</a></div>');
         }
         infowindow.open(map, marker);
