@@ -32,7 +32,7 @@
 
                 <div id="listings">
                     <ul id="brewery-listings" data-bind="foreach: markers">
-                        <li data-bind="text: title, event:{mouseover: $parent.highlightMarker, mouseout: $parent.defaultMarker}"></li>
+                        <li data-bind="text: title, event:{mouseover: $parent.highlightMarker, mouseout: $parent.defaultMarker, click: $parent.toggleBounce}"></li>
                     </ul>
                 </div>
             </div>

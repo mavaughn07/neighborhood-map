@@ -133,6 +133,19 @@ var viewModel = function() {
         marker.setIcon(defaultIcon);
     }
 
+    //function pulled from google marker animations tutorial
+    //used to toggle the bounce animation of a marker when clicked, or stop bouncing after 5 seconds.
+    self.toggleBounce = function(marker) {
+        if (marker.getAnimation() !== null) {
+            marker.setAnimation(null);
+        } else {
+            marker.setAnimation(google.maps.Animation.BOUNCE);
+            window.setTimeout(function() {
+                marker.setAnimation(null);
+            }, 5000);
+        }
+    }
+
     //pulled from previous Udacity lessons
     function makeMarkerIcon(markerColor) {
         var markerImage = new google.maps.MarkerImage(
