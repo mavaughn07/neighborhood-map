@@ -44,7 +44,7 @@ var viewModel = function() {
 
         (function(marker) {
             $.ajax({
-                url: 'https://aapi.foursquare.com/v2/venues/search?ll=' + marker.position.lat() + ',' + marker.position.lng() + '&query=' + marker.title + '&client_id=MCLI5B3BQXDAOANZ0KROJJDTU1ENKQUMDZEXSEQ3VZZL3K5O&client_secret=ZFNPE0JKM3UIC3WCQBZ4UP0ZM4FWY42AQISP0Y2Q0Y2GU31L&v=20181125',
+                url: 'https://api.foursquare.com/v2/venues/search?ll=' + marker.position.lat() + ',' + marker.position.lng() + '&query=' + marker.title + '&client_id=MCLI5B3BQXDAOANZ0KROJJDTU1ENKQUMDZEXSEQ3VZZL3K5O&client_secret=ZFNPE0JKM3UIC3WCQBZ4UP0ZM4FWY42AQISP0Y2Q0Y2GU31L&v=20181125',
                 method: 'GET',
                 dataType: 'json',
                 success: function(data) {
