@@ -35,8 +35,10 @@ var viewModel = function() {
             title: title,
             animation: google.maps.Animation.DROP,
             icon: defaultIcon,
-            id: i
+            id: i,
+            map: map
         });
+
         marker.address = '';
         marker.phone = '';
         marker.website = '';
@@ -98,8 +100,10 @@ var viewModel = function() {
         marker.addListener('click', function() {
             populateInfoWindow(this, infowindow);
         });
-
+        bounds.extend(marker.position);
     }
+
+    map.fitBounds(bounds);
 
     // Extend the boundaries of the map for each marker and display the marker
 
