@@ -83,14 +83,12 @@ var viewModel = function() {
                             }
                         },
                         error: function() {
-                            alert("Error reaching the Foursquare API for " + marker.title);
-                            marker.rating = 'Error reaching Foursquare API'
+                            marker.rating = 'Error reaching Foursquare API';
                         }
                     })
                 },
                 error: function() {
-                    alert("Error reaching the Foursquare API for " + marker.title);
-                    marker.rating = 'Error reaching Foursquare API'
+                    marker.rating = 'Error reaching Foursquare API';
                 }
 
             })
