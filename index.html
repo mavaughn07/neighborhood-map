@@ -15,15 +15,15 @@
 </head>
 
 <body>
-    <div class="container-fluid fill">
-        <div class="row fill">
-            <div class="col-3 no-padding list-sec">
-                <div class="no-padding text-center">
+    <div class="container-fluid">
+        <div class="sidebar">
+            <div class="list-section">
+                <div class="text-center">
                     <button id="show-listings" class="btn btn-default" data-bind="click: showListings">Show Listings</button>
                     <button id="hide-listings" class="btn btn-default" data-bind="click: hideListings">Hide Listings</button>
                 </div>
 
-                <div class="input-group mb-3 no-margin search-bar">
+                <div class="input-group search-bar">
                     <input type="text" class="form-control" placeholder="Brewery Name" aria-label="Brewery's name" aria-describedby="basic-addon2">
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary" type="button">Filter</button>
@@ -36,10 +36,18 @@
                     </ul>
                 </div>
             </div>
-            <div class="col no-padding">
-                <div id="map"></div>
-            </div>
+
+
+            <nav class="navbar navbar-dark bg-dark">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".list-section">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+            </nav>
         </div>
+        <div class="map-container">
+            <div id="map"></div>
+        </div>
+
     </div>
 
     <!--Bootstrap-->
