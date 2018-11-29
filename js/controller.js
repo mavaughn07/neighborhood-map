@@ -133,11 +133,14 @@ var viewModel = function() {
 
     //function pulled from google marker animations tutorial
     //used to toggle the bounce animation of a marker when clicked, or stop bouncing after 5 seconds.
+    //will also open the info window
     self.toggleBounce = function(marker) {
         if (marker.getAnimation() !== null) {
             marker.setAnimation(null);
         } else {
             marker.setAnimation(google.maps.Animation.BOUNCE);
+            populateInfoWindow(marker, infowindow);
+            map.panTo(marker.position);
             window.setTimeout(function() {
                 marker.setAnimation(null);
             }, 5000);
