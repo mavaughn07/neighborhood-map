@@ -110,6 +110,9 @@ var viewModel = function() {
         for (var i = 0; i < self.markers().length; i++) {
             self.markers()[i].setMap(map);
             bounds.extend(self.markers()[i].position);
+            infowindow.setContent(null);
+            infowindow.close();
+
         }
         map.fitBounds(bounds);
     }
