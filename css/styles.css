@@ -5,7 +5,7 @@ body,
     padding: 0px;
 }
 
-.sidebar {
+.sidebar-toggle {
     padding-left: 250px;
 }
 
@@ -43,4 +43,5 @@ body,
 .navbar {
     position: fixed;
     z-index: 3;
+    padding: 0;
 }

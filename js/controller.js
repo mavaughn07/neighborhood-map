@@ -176,4 +176,10 @@ var viewModel = function() {
         }
         infowindow.open(map, marker);
     }
+
+    self.toggleMenu = function() {
+        $(".sidebar").toggleClass("sidebar-toggle");
+
+
+    }
 }
