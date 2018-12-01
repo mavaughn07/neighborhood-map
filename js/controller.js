@@ -114,12 +114,6 @@ var viewModel = function() {
         map.fitBounds(bounds);
     }
 
-    self.hideListings = function() {
-        for (var i = 0; i < self.markers().length; i++) {
-            self.markers()[i].setMap(null);
-        }
-    }
-
     self.highlightMarker = function(marker) {
 
         marker.setIcon(highlightedIcon);
