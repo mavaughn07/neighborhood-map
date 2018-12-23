@@ -31,7 +31,9 @@
 
                 <div id="listings">
                     <ul id="brewery-listings" data-bind="foreach: markers">
-                        <li data-bind="text: title, event:{mouseover: $parent.highlightMarker, mouseout: $parent.defaultMarker, click: $parent.toggleBounce}"></li>
+                        <li>
+                            <a href="#" data-bind="text: title, event:{mouseover: $parent.highlightMarker, mouseout: $parent.defaultMarker, click: $parent.toggleBounce}"></a>
+                        </li>
                     </ul>
                 </div>
             </div>
