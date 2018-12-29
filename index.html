@@ -23,14 +23,14 @@
                 </div>
 
                 <div class="input-group search-bar">
-                    <input type="text" class="form-control" placeholder="Brewery Name" aria-label="Brewery's name" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control" placeholder="Brewery Name" aria-label="Brewery's name" aria-describedby="basic-addon2" data-bind="value: itemFilter, valueUpdate: 'afterkeydown'">
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary" type="button">Filter</button>
                     </div>
                 </div>
 
                 <div id="listings">
-                    <ul id="brewery-listings" data-bind="foreach: markers">
+                    <ul id="brewery-listings" data-bind="foreach: breweryFilter">
                         <li>
                             <a href="#" data-bind="text: title, event:{mouseover: $parent.highlightMarker, mouseout: $parent.defaultMarker, click: $parent.toggleBounce}"></a>
                         </li>
@@ -41,8 +41,8 @@
 
             <nav class="navbar navbar-dark bg-dark">
                 <button class="navbar-toggler" type="button" data-bind="click: toggleMenu">
-				<span class="navbar-toggler-icon"></span>
-			</button>
+					<span class="navbar-toggler-icon"></span>
+				</button>
             </nav>
         </div>
         <div class="map-container">

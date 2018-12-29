@@ -26,6 +26,9 @@ var viewModel = function() {
     var highlightedIcon = makeMarkerIcon('FFFF24');
     self.markers = ko.observableArray([]);
 
+    self.itemFilter = ko.observable('');
+
+
     for (var i = 0; i < locations.length; i++) {
         var position = locations[i].location;
         var title = locations[i].title;
@@ -179,4 +182,12 @@ var viewModel = function() {
 
 
     }
+
+    this.breweryFilter = ko.computed(function() {
+        var search = self.itemFilter().toLowerCase();
+
+        return self.markers();
+
+
+    })
 }
