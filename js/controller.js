@@ -26,7 +26,7 @@ var viewModel = function() {
     var highlightedIcon = makeMarkerIcon('FFFF24');
     self.markers = ko.observableArray([]);
 
-    self.itemFilter = ko.observable('');
+    this.itemFilter = ko.observable('');
 
 
     for (var i = 0; i < locations.length; i++) {
@@ -185,9 +185,22 @@ var viewModel = function() {
 
     this.breweryFilter = ko.computed(function() {
         var search = self.itemFilter().toLowerCase();
+        if (!search) {
+            return self.markers();
+        } else {
+            return ko.utils.arrayFilter(self.markers(), function(marker) {
+                    var found = marker.title.toLowerCase().indexOf(search) > -1;
+                    if (found) {
+                        marker.setVisible(true);
+                    } else {
+                        marker.setVisible(false);
+                    }
+                    return found;
+                }
 
-        return self.markers();
 
 
+            )
+        }
     })
 }
