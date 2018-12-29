@@ -189,18 +189,14 @@ var viewModel = function() {
             return self.markers();
         } else {
             return ko.utils.arrayFilter(self.markers(), function(marker) {
-                    var found = marker.title.toLowerCase().indexOf(search) > -1;
-                    if (found) {
-                        marker.setVisible(true);
-                    } else {
-                        marker.setVisible(false);
-                    }
-                    return found;
+                var filter = marker.title.toLowerCase().indexOf(search) > -1;
+                if (filter) {
+                    marker.setVisible(true);
+                } else {
+                    marker.setVisible(false);
                 }
-
-
-
-            )
+                return filter;
+            })
         }
     })
 }
