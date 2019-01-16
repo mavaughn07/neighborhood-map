@@ -186,6 +186,7 @@ var viewModel = function() {
     this.breweryFilter = ko.computed(function() {
         var search = self.itemFilter().toLowerCase();
         if (!search) {
+            self.markers().forEach(marker => { marker.setVisible(true) });
             return self.markers();
         } else {
             return ko.utils.arrayFilter(self.markers(), function(marker) {
