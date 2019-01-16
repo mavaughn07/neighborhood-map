@@ -1,11 +1,11 @@
-#Neighborhood Map
+# Neighborhood Map
 This is the 5th project in the Udacity Full-stack Nanodegree. We were tasked with creating a single page application featuring a neighborhood/area that you would like to visit and then adding functionality to highlight locations and pull in third party data.
 
-##APIs Used
+## APIs Used
 * Google Maps
 * Foursquare
 
-##Other Tools
+## Other Tools
 * Bootstrap
 * jQuery
 * knockout
