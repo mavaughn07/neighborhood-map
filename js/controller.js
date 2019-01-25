@@ -104,7 +104,7 @@ var viewModel = function() {
 
         //listener to open infowindow on individual marker
         marker.addListener('click', function() {
-            populateInfoWindow(this, infowindow);
+            toggleBounce(this);
         });
         bounds.extend(marker.position);
     }
@@ -140,7 +140,7 @@ var viewModel = function() {
     //function pulled from google marker animations tutorial
     //used to toggle the bounce animation of a marker when clicked, or stop bouncing after 5 seconds.
     //will also open the info window
-    self.toggleBounce = function(marker) {
+    function toggleBounce(marker) {
         if (marker.getAnimation() !== null) {
             marker.setAnimation(null);
         } else {
