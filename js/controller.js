@@ -153,6 +153,19 @@ var viewModel = function() {
         }
     }
 
+    self.toggleBounce = function() {
+        if (marker.getAnimation() !== null) {
+            marker.setAnimation(null);
+        } else {
+            marker.setAnimation(google.maps.Animation.BOUNCE);
+            populateInfoWindow(marker, infowindow);
+            map.panTo(marker.position);
+            window.setTimeout(function() {
+                marker.setAnimation(null);
+            }, 5000);
+        }
+    }
+
     //pulled from previous Udacity lessons
     //sets color and shape of marker
     function makeMarkerIcon(markerColor) {
