@@ -228,3 +228,7 @@ var viewModel = function() {
         }
     })
 }
+
+function mapsError() {
+    alert("Error connecting to Google Maps")
+}
